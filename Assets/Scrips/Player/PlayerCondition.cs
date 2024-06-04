@@ -13,19 +13,28 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     public UICondition uiCondition;
 
     Condition health { get { return uiCondition.health; } }
-    Condition hunger { get { return uiCondition.hunger; } }
     Condition stamina { get { return uiCondition.stamina; } }
+    Condition hunger { get { return uiCondition.hunger; } }
+    Condition thirst { get { return uiCondition.thirst; } }
+    Condition temperature { get { return uiCondition.temperature; } }
 
     public float noHungerHealthDecay;
     public event Action onTakeDamage;
 
     private void Update()
     {
-        hunger.Subtract(hunger.decayRate * Time.deltaTime);
         stamina.Add(stamina.regenRate * Time.deltaTime);
+        hunger.Subtract(hunger.decayRate * Time.deltaTime);
+        thirst.Subtract(thirst.decayRate * Time.deltaTime);
 
-        //henger가 0보다 작아지면 health를 깎음
+        //hunger가 0보다 작아지면 health를 깎음
         if (hunger.curValue == 0.0f)
+        {
+            health.Subtract(noHungerHealthDecay * Time.deltaTime);
+        }
+
+        //thirst가 0보다 작아지면 health를 깎음
+        if (thirst.curValue == 0.0f)
         {
             health.Subtract(noHungerHealthDecay * Time.deltaTime);
         }

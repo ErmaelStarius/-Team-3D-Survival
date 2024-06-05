@@ -3583,6 +3583,7 @@ GameObject:
   - component: {fileID: 374061426}
   - component: {fileID: 374061425}
   - component: {fileID: 374061427}
+  - component: {fileID: 374061428}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -3734,7 +3735,19 @@ MonoBehaviour:
     m_ActionId: 5ea356e9-7081-4122-ab2a-ba0b5dd1adb2
     m_ActionName: Player/Inventory[/Keyboard/tab]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 374061428}
+        m_TargetAssemblyTypeName: Interation, Assembly-CSharp
+        m_MethodName: OnInteractInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a8a9896a-1e04-45ce-aca4-9871cb3c3b72
     m_ActionName: Player/Interation[/Keyboard/e]
   - m_PersistentCalls:
@@ -3799,6 +3812,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCondition: {fileID: 1676882471}
   noHungerHealthDecay: 2
+--- !u!114 &374061428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374061420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37494581dc47c814a9fbef19437855e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkRate: 0.05
+  maxCheckDistance: 3
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  curInteractGameObject: {fileID: 0}
+  promptText: {fileID: 1687980278}
 --- !u!1001 &376898720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14864,7 +14896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -400}
+  m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 1400, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1687980278

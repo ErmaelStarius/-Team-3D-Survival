@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 //아이템의 용도
@@ -44,6 +42,10 @@ public class ItemData : ScriptableObject
     //소비 아이템
     [Header("Consumable")]
     public ItemDataConsumable[] consumables;
+
+    //가공(크래프트) 아이템
+    [Header("Craft")]
+    public bool isCraftItem;
 
     [Header("Equip")]
     public GameObject equipPrefab;

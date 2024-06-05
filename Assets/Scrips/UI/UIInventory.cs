@@ -11,10 +11,13 @@ using System;
 public class UIInventory : MonoBehaviour
 {
     public ItemSlot[] slots;
+    public ItemSlot[] craftSlots;
 
     public GameObject inventoryWindow;
     public Transform slotPanel;
     public Transform dropPosition;
+    public GameObject craftWindow;
+    public Transform craftSlotPanel;
 
     [Header("Selected Item")]
     //private ItemSlot selectedItem;
@@ -45,7 +48,8 @@ public class UIInventory : MonoBehaviour
         controller.inventory += Toggle;
         CharacterManager.Instance.Player.addItem += AddItem;
 
-        inventoryWindow.SetActive(false);              
+        inventoryWindow.SetActive(false);
+
         slots = new ItemSlot[slotPanel.childCount];//가져온 슬롯 판넬 트랜스폼 아래에 자식의 갯수 구하기
 
         for (int i = 0; i < slots.Length; i++)
@@ -56,7 +60,17 @@ public class UIInventory : MonoBehaviour
             //slots[i].Clear();
         }
 
+        craftSlots = new ItemSlot[craftSlotPanel.childCount];
+
+        for (int i = 0; i < craftSlots.Length; i++)
+        {
+            craftSlots[i] = craftSlotPanel.GetChild(i).GetComponent<ItemSlot>();
+            craftSlots[i].index = i;
+            craftSlots[i].inventory = this;
+        }
+
         ClearSelectedItemWindow();
+        UpdateUI();
     }
 
     void ClearSelectedItemWindow()
@@ -79,6 +93,7 @@ public class UIInventory : MonoBehaviour
         if(IsOpen())
         {
             inventoryWindow.SetActive(false);
+            craftWindow.SetActive(false);
         }
         else
         {
@@ -152,6 +167,18 @@ public class UIInventory : MonoBehaviour
             else
             {
                 slots[i].Clear();
+            }
+        }
+
+        for (int i = 0; i < craftSlots.Length; i++)
+        {
+            if (craftSlots[i].item != null)
+            {
+                craftSlots[i].Set();
+            }
+            else
+            {
+                craftSlots[i].Clear();
             }
         }
     }
@@ -344,15 +371,14 @@ public class UIInventory : MonoBehaviour
     {
         UnEquip(selectedItemIndex);
     }
-/*
-    public bool HasItem(ItemData item, int quantity)
+    
+    void CraftUI()
     {
-        return false;
+        craftWindow.SetActive(true);
     }
-    /*
-public bool HasItem(ItemData item, int quantity)
-{
-    return false;
-}
-*/
+
+    public void OnCraftButton()
+    {
+        CraftUI();
+    }
 }

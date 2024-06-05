@@ -14,6 +14,8 @@ public class ItemSlot : MonoBehaviour
     private Outline outline;
 
     public UIInventory inventory;
+    public UICraft craftInventory;
+    public bool isCraftInventory = false;
 
     public int index;
     public bool equipped;
@@ -50,7 +52,13 @@ public class ItemSlot : MonoBehaviour
     
     public void OnClickButton()
     {
-        inventory.SelectItem(index);
+        if (isCraftInventory)
+        {
+            craftInventory.SelectItem(index);
+        }
+        else
+        {
+            inventory.SelectItem(index);
+        }
     }
-    
 }

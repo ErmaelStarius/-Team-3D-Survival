@@ -56,6 +56,16 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         hunger.Add(amount);
     }
 
+    public void Drink(float amount)
+    {
+        thirst.Add(amount);
+    }
+
+    public void Power(float amount)
+    {
+        stamina.Add(amount);
+    }
+
     public void Die()
     {
         Debug.Log("¿Ø¥Ÿ»Ò");

@@ -17,8 +17,7 @@ public class UIInventory : MonoBehaviour
     public Transform dropPosition;
 
     [Header("Selected Item")]
-    //private ItemSlot selectedItem;
-    //private int selectedItemIndex;
+
     public TextMeshProUGUI selectedItemName;
     public TextMeshProUGUI selectedItemDescription;
     public TextMeshProUGUI selectedItemStatName;
@@ -46,14 +45,14 @@ public class UIInventory : MonoBehaviour
         CharacterManager.Instance.Player.addItem += AddItem;
 
         inventoryWindow.SetActive(false);              
-        slots = new ItemSlot[slotPanel.childCount];//가져온 슬롯 판넬 트랜스폼 아래에 자식의 갯수 구하기
+        slots = new ItemSlot[slotPanel.childCount];
 
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i] = slotPanel.GetChild(i).GetComponent<ItemSlot>();
             slots[i].index = i;
             slots[i].inventory = this;
-            //slots[i].Clear();
+
         }
 
         ClearSelectedItemWindow();
@@ -61,7 +60,7 @@ public class UIInventory : MonoBehaviour
 
     void ClearSelectedItemWindow()
     {
-        //selectedItem = null;
+
 
         selectedItemName.text = string.Empty;
         selectedItemDescription.text = string.Empty;
@@ -86,19 +85,7 @@ public class UIInventory : MonoBehaviour
         }
     }
 
-    /*
-    public void Toggle()
-    {
-        if (inventoryWindow.activeInHierarchy)
-        {
-            inventoryWindow.SetActive(false);
-        }
-        else
-        {
-            inventoryWindow.SetActive(true);
-        }
-    }
-    */
+
     
     public bool IsOpen()
     {
@@ -190,11 +177,11 @@ public class UIInventory : MonoBehaviour
     {
         if (slots[index].item == null) return;
 
-        //selectedItem = slots[index];
+
         selectedItem = slots[index].item;
         selectedItemIndex = index;
 
-        //영상에서는 item이 전부 빠져있음, 문제생길시 이 부분을 전부 삭제해볼것
+
         selectedItemName.text = selectedItem.displayName;
         selectedItemDescription.text = selectedItem.description;
 
@@ -213,54 +200,6 @@ public class UIInventory : MonoBehaviour
         dropButton.SetActive(true);
     }
 
-
-    /*
-     * 
-     *     public void SelectItem(int index)
-    {
-        if (slots[index].item == null) return;
-
-        //selectedItem = slots[index];
-        selectedItem = slots[index].item;
-        selectedItemIndex = index;
-
-        //영상에서는 item이 전부 빠져있음, 문제생길시 이 부분을 전부 삭제해볼것
-        selectedItemName.text = selectedItem.item.displayName;
-        selectedItemDescription.text = selectedItem.item.description;
-
-        selectedItemStatName.text = string.Empty;
-        selectedItemStatValue.text = string.Empty;
-
-        for (int i = 0; i < selectedItem.item.consumables.Length; i++)
-        {
-            selectedItemStatName.text += selectedItem.item.consumables[i].type.ToString() + "\n";
-            selectedItemStatValue.text += selectedItem.item.consumables[i].value.ToString() + "\n";
-        }
-
-        useButton.SetActive(selectedItem.item.type == ItemType.Consumable);
-        equipButton.SetActive(selectedItem.item.type == ItemType.Equipable && !slots[index].equipped);
-        unEquipButton.SetActive(selectedItem.item.type == ItemType.Equipable && slots[index].equipped);
-        dropButton.SetActive(true);
-    }
-    
-    public void OnUseButton()
-    {
-        if (selectedItem.item.type == ItemType.Consumable)
-        {
-            for (int i = 0; i < selectedItem.item.consumables.Length; i++)
-            {
-                switch (selectedItem.item.consumables[i].type)
-                {
-                    case ConsumableType.Health:
-                        condition.Heal(selectedItem.item.consumables[i].value); break;
-                    case ConsumableType.Hunger:
-                        condition.Eat(selectedItem.item.consumables[i].value); break;
-                }
-            }
-            RemoveSelctedItem();
-        }
-    }
-    */
 
     public void OnUseButton()
     {
@@ -291,17 +230,12 @@ public class UIInventory : MonoBehaviour
     
     void RemoveSelctedItem()
     {
-        //selectedItem.quantity--;
+
         slots[selectedItemIndex].quantity--;
 
-        //if (selectedItem.quantity <= 0)
+
        if (slots[selectedItemIndex].quantity <= 0)
-        {/*
-            if (slots[selectedItemIndex].equipped)
-            {
-                UnEquip(selectedItemIndex);
-            }
-            */
+        {
             selectedItem = null;
             slots[selectedItemIndex].item = null;
             selectedItemIndex = -1;
@@ -322,7 +256,7 @@ public class UIInventory : MonoBehaviour
         slots[selectedItemIndex].equipped = true;
         curEquipIndex = selectedItemIndex;
         CharacterManager.Instance.Player.equip.EquipNew(selectedItem);
-        //CharacterManager.Instance.Player.equip.EquipNew(selectedItem.item);
+
         UpdateUI();
 
         SelectItem(selectedItemIndex);
@@ -344,15 +278,5 @@ public class UIInventory : MonoBehaviour
     {
         UnEquip(selectedItemIndex);
     }
-/*
-    public bool HasItem(ItemData item, int quantity)
-    {
-        return false;
-    }
-    /*
-public bool HasItem(ItemData item, int quantity)
-{
-    return false;
-}
-*/
+
 }

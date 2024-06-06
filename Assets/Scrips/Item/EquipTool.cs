@@ -41,7 +41,7 @@ public class EquipTool : Equip
                 animator.SetTrigger("Attack");
                 Invoke("OnCanAttack", attackRate);
             }
-               
+
         }
     }
 
@@ -61,11 +61,11 @@ public class EquipTool : Equip
             {
                 resource.Gather(hit.point, hit.normal);
             }
-            /*
-            if (doesDealDamage && hit.collider.TryGetComponent(out IDamagable damagable))
+
+            else if (doesDealDamage && hit.collider.TryGetComponent(out IDamagable damagable))
             {
                 damagable.TakePhysicalDamage(damage);
-            }*/
+            }
         }
     }
 }

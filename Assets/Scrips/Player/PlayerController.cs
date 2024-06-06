@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 curMovementInput;
     public float jumptForce;
     public LayerMask groundLayerMask;
-    
-    
+
+
     [Header("Look")]
     public Transform cameraContainer;
     public float minXLook;
@@ -20,10 +20,10 @@ public class PlayerController : MonoBehaviour
     private float camCurXRot;
     public float lookSensitivity;
     private Vector2 mouseDelta;
-    
-   
+
+
     [HideInInspector]
-    public bool canLook = true; //ÀÎº¥Åä¸®°¡ ÄÑÁ³À» ¶§¿£ È­¸éÀÌ ¿òÁ÷ÀÌ¸é ¾ÈµÇ°í ÀÎº¥Åä¸®¸¦ Å¬¸¯ÇÒ Ä¿¼­´Â ÇÊ¿äÇÏ±â ¶§¹®¿¡ ÇÊ¿äÇÔ.
+    public bool canLook = true; //ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ÈµÇ°ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½.
     public Action inventory;
 
     private Rigidbody rigidbody;
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
             CameraLook();
         }
     }
-   
+
     public void OnLookInput(InputAction.CallbackContext context)
     {
         mouseDelta = context.ReadValue<Vector2>();
@@ -59,15 +59,15 @@ public class PlayerController : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
-            {
-                curMovementInput = context.ReadValue<Vector2>();
-            }
+        {
+            curMovementInput = context.ReadValue<Vector2>();
+        }
         else if (context.phase == InputActionPhase.Canceled)
-            {
-                curMovementInput = Vector2.zero;
-            }
+        {
+            curMovementInput = Vector2.zero;
+        }
     }
-        
+
     public void OnJumpInput(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started && IsGrounded())
@@ -130,6 +130,7 @@ public class PlayerController : MonoBehaviour
             ToggleCursor();
         }
     }
+
+
 }
 
-  

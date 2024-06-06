@@ -108,6 +108,7 @@ Shader "LowPoly/SimpleWater"
 		ENDCG
 	}
 	Fallback "Diffuse"
+	CustomEditor "ASEMaterialInspector"
 }
 /*ASEBEGIN
 Version=14006

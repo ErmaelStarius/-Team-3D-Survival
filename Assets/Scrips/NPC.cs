@@ -8,6 +8,7 @@ public enum AIState
     Idle,
     Wandering,
     Attacking,
+    Death
 }
 
 public class NPC : MonoBehaviour, IDamagable
@@ -43,11 +44,19 @@ public class NPC : MonoBehaviour, IDamagable
     private Animator animator;
     private SkinnedMeshRenderer[] meshRenderers;
 
+    public GameObject spawnArea;
+
+    public EnemyData enemyData;
+
+
+
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
         meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+
     }
 
     private void Start()
@@ -69,6 +78,8 @@ public class NPC : MonoBehaviour, IDamagable
                 break;
             case AIState.Attacking:
                 AttackingUpdate();
+                break;
+            case AIState.Death:
                 break;
 
         }
@@ -92,6 +103,11 @@ public class NPC : MonoBehaviour, IDamagable
                 agent.speed = runSpeed;
                 agent.isStopped = false;
                 break;
+            case AIState.Death:
+                agent.speed = 0;
+                agent.isStopped = true;
+                break;
+
 
         }
 
@@ -105,7 +121,7 @@ public class NPC : MonoBehaviour, IDamagable
             SetState(AIState.Idle);
             Invoke("WanderToNewLocation", Random.Range(minWanderWaitTime, maxWanderWaitTime));
         }
-        
+
         if (playerDistance < detectDistance)
         {
             SetState(AIState.Attacking);
@@ -157,7 +173,7 @@ public class NPC : MonoBehaviour, IDamagable
 
         else
         {
-            if(playerDistance < detectDistance)
+            if (playerDistance < detectDistance)
             {
                 agent.isStopped = false;
                 NavMeshPath path = new NavMeshPath();
@@ -168,7 +184,7 @@ public class NPC : MonoBehaviour, IDamagable
                 else
                 {
                     agent.SetDestination(transform.position);
-                    agent.isStopped = true ;
+                    agent.isStopped = true;
                     SetState(AIState.Wandering);
                 }
             }
@@ -178,8 +194,8 @@ public class NPC : MonoBehaviour, IDamagable
                 agent.isStopped = true;
                 SetState(AIState.Wandering);
             }
-            
-         
+
+
         }
     }
 
@@ -195,23 +211,38 @@ public class NPC : MonoBehaviour, IDamagable
     {
         health -= damage;
         if (health <= 0)
-            Die();
+        {
+
+
+            aiState = AIState.Death;
+
+            animator.SetTrigger("Death");
+
+            Invoke("Die", 2f);
+
+        }
+
 
         StartCoroutine(DamageFlash());
     }
-    
+
 
     void Die()
     {
+
         for (int i = 0; i < dropOnDeath.Length; i++)
         {
             Instantiate(dropOnDeath[i].dropPrefab, transform.position + Vector3.up * 2, Quaternion.identity);
         }
 
+        Instantiate(enemyData.spawnPrefab);
+        // Not yet
+
+
         Destroy(gameObject);
     }
-    
-    //µ¥¹ÌÁö¸¦ ÀÔ¾úÀ»¶§ È¿°ú
+
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½
     IEnumerator DamageFlash()
     {
         for (int i = 0; i < meshRenderers.Length; i++)
@@ -226,4 +257,6 @@ public class NPC : MonoBehaviour, IDamagable
             meshRenderers[i].material.color = Color.white;
         }
     }
+
+
 }

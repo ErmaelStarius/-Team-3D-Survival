@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using System;
+using System.Reflection;
 
 
 
@@ -241,6 +242,12 @@ public class UIInventory : MonoBehaviour
                     case ConsumableType.Hunger:
                         condition.Eat(selectedItem.consumables[i].value); 
                         break;
+                    case ConsumableType.Thirst:
+                        condition.Drink(selectedItem.consumables[i].value);
+                        break;
+                    case ConsumableType.Samina:
+                        condition.Power(selectedItem.consumables[i].value);
+                        break;
                 }
             }
             RemoveSelctedItem();
@@ -249,6 +256,11 @@ public class UIInventory : MonoBehaviour
 
     public void OnDropButton()
     {
+        if(selectedItem.type == ItemType.Equipable && slots[selectedItemIndex].equipped)
+        {
+            UnEquip(selectedItemIndex);
+        }
+
         ThrowItem(selectedItem);
         RemoveSelctedItem();
     }

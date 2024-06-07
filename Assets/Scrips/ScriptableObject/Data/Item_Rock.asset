@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccb8d9d5fac60b4da99d52b4e2c9acb, type: 3}
   m_Name: Item_Rock
   m_EditorClassIdentifier: 
+  rcode: rock
   displayName: "\uB3CC"
   description: "\uADF8\uB0E5 \uB3CC\uC785\uB2C8\uB2E4."
   type: 0
@@ -20,4 +21,6 @@ MonoBehaviour:
   canStack: 1
   maxStackAmount: 12
   consumables: []
+  isCraftItem: 0
+  materials: []
   equipPrefab: {fileID: 0}

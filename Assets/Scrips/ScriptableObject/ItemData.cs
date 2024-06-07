@@ -13,7 +13,10 @@ public enum ConsumableType
 {
     Hunger,
     Health,
-    Thirst
+    Thirst,
+    Samina
+
+
 }
 
 [System.Serializable]

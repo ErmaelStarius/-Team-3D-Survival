@@ -91,6 +91,17 @@ public class UICraft : MonoBehaviour
             selectedItemStatValue.text += selectedItem.consumables[i].value.ToString() + "\n";
         }
 
+        materialLabel.text = "Material";
+
+        requiredMaterialName.text = string.Empty;
+        requiredMaterialValue.text = string.Empty;
+
+        for (int i = 0; i < selectedItem.materials.Length; i++)
+        {
+            requiredMaterialName.text += selectedItem.materials[i].materialName + "\n";
+            requiredMaterialValue.text += selectedItem.materials[i].value.ToString() + "\n";
+        }
+
         craftButton.SetActive(true);
     }
 

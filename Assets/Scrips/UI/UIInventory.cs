@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using System;
+using System.Reflection;
 
 
 
@@ -249,6 +250,11 @@ public class UIInventory : MonoBehaviour
 
     public void OnDropButton()
     {
+        if(selectedItem.type == ItemType.Equipable && slots[selectedItemIndex].equipped)
+        {
+            UnEquip(selectedItemIndex);
+        }
+
         ThrowItem(selectedItem);
         RemoveSelctedItem();
     }

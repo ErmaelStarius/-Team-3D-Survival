@@ -1,44 +1,43 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public interface ISpawn
 {
-    void spawn(EnemyData enemyData);
+    void Spawn(EnemyData enemyData);
 }
 public class SpawnEnemy : MonoBehaviour, ISpawn
 {
-    public int enemyCount { get; set; }
-    private int enemyMaxCount = 5;
 
-    public Transform _transform;
 
     public EnemyData enemyData;
 
+    public Action OnSpawn;
+    public static SpawnEnemy _instance;
+    private void Awake()
+    {
+        _instance = this;
+    }
     private void Start()
     {
-        _transform = this.transform;
-        enemyCount = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            Spawn(enemyData);
+        }
     }
 
     private void Update()
     {
-        if (enemyCount <= enemyMaxCount)
+        if (OnSpawn != null)
         {
-            spawn(enemyData);
-            enemyCount++;
+            Spawn(enemyData);
+            OnSpawn = null;
         }
-
-
     }
-    public void spawn(EnemyData enemyData)
+    public void Spawn(EnemyData enemyData)
     {
         Instantiate(enemyData.spawnPrefab, this.transform);
 
-    }
-
-    public void CountSub()
-    {
-        enemyCount--;
     }
 }

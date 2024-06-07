@@ -1,7 +1,10 @@
+
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+
 
 public enum AIState
 {
@@ -44,11 +47,6 @@ public class NPC : MonoBehaviour, IDamagable
     private Animator animator;
     private SkinnedMeshRenderer[] meshRenderers;
 
-    public GameObject spawnArea;
-
-    public EnemyData enemyData;
-
-
 
 
     private void Awake()
@@ -61,6 +59,7 @@ public class NPC : MonoBehaviour, IDamagable
 
     private void Start()
     {
+
         SetState(AIState.Wandering);
     }
 
@@ -116,6 +115,7 @@ public class NPC : MonoBehaviour, IDamagable
 
     void PassiveUpdate()
     {
+
         if (aiState == AIState.Wandering && agent.remainingDistance < 0.1f)
         {
             SetState(AIState.Idle);
@@ -164,9 +164,9 @@ public class NPC : MonoBehaviour, IDamagable
             if (Time.time - lastAttackTime > attackRate)
             {
                 lastAttackTime = Time.time;
-                CharacterManager.Instance.Player.controller.GetComponent<IDamagable>().TakePhysicalDamage(damage);
                 animator.speed = 1;
                 animator.SetTrigger("Attack");
+                CharacterManager.Instance.Player.controller.GetComponent<IDamagable>().TakePhysicalDamage(damage);
             }
 
         }
@@ -210,12 +210,12 @@ public class NPC : MonoBehaviour, IDamagable
     public void TakePhysicalDamage(int damage)
     {
         health -= damage;
-        if (health <= 0)
+        if (health <= 0 && aiState != AIState.Death)
         {
 
 
             aiState = AIState.Death;
-
+            agent.isStopped = true;
             animator.SetTrigger("Death");
 
             Invoke("Die", 2f);
@@ -235,9 +235,7 @@ public class NPC : MonoBehaviour, IDamagable
             Instantiate(dropOnDeath[i].dropPrefab, transform.position + Vector3.up * 2, Quaternion.identity);
         }
 
-        Instantiate(enemyData.spawnPrefab);
-        // Not yet
-
+        SpawnEnemy._instance.OnSpawn = Die;
 
         Destroy(gameObject);
     }

@@ -1,12 +1,15 @@
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class UICraft : MonoBehaviour
 {
-    public ItemSlot[] slots;
-
-    public Transform slotPanel;
+    public ItemSlot[] craftSlots;
+    public Transform craftSlotPanel;
     public GameObject craftWindow;
+
+    public GameObject inventoryWindow;
+    public UIInventory inventory;
 
     [Header("Selected Item")]
     public TextMeshProUGUI selectedItemName;
@@ -22,21 +25,24 @@ public class UICraft : MonoBehaviour
 
     private int curEquipIndex;
 
+    private ItemSlot selectedItemSlot;
     private ItemData selectedItem;
     private int selectedItemIndex = 0;
 
     void Start()
     {
+        inventory = inventoryWindow.GetComponent<UIInventory>();
+
         craftWindow.SetActive(false);
 
-        slots = new ItemSlot[slotPanel.childCount];
+        craftSlots = new ItemSlot[craftSlotPanel.childCount];
 
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < craftSlots.Length; i++)
         {
-            slots[i] = slotPanel.GetChild(i).GetComponent<ItemSlot>();
-            slots[i].index = i;
-            slots[i].craftInventory = this;
-            slots[i].isCraftInventory = true;
+            craftSlots[i] = craftSlotPanel.GetChild(i).GetComponent<ItemSlot>();
+            craftSlots[i].index = i;
+            craftSlots[i].craftInventory = this;
+            craftSlots[i].isCraftInventory = true;
         }
 
         ClearSelectedItemWindow();
@@ -59,24 +65,25 @@ public class UICraft : MonoBehaviour
 
     public void UpdateUI()
     {
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < craftSlots.Length; i++)
         {
-            if (slots[i].item != null)
+            if (craftSlots[i].item != null)
             {
-                slots[i].Set();
+                craftSlots[i].Set();
             }
             else
             {
-                slots[i].Clear();
+                craftSlots[i].Clear();
             }
         }
     }
 
     public void SelectItem(int index)
     {
-        if (slots[index].item == null) return;
+        if (craftSlots[index].item == null) return;
 
-        selectedItem = slots[index].item;
+        selectedItemSlot = craftSlots[index];
+        selectedItem = craftSlots[index].item;
         selectedItemIndex = index;
 
         selectedItemName.text = selectedItem.displayName;
@@ -99,19 +106,62 @@ public class UICraft : MonoBehaviour
         for (int i = 0; i < selectedItem.materials.Length; i++)
         {
             requiredMaterialName.text += selectedItem.materials[i].materialName + "\n";
+            requiredMaterialValue.text += inventory.GetItemQuantity(selectedItem.materials[i].materialName).ToString();
+            requiredMaterialValue.text += " / ";
             requiredMaterialValue.text += selectedItem.materials[i].value.ToString() + "\n";
         }
 
         craftButton.SetActive(true);
     }
 
-    void Close()
+    public void Close()
     {
+        ClearSelectedItemWindow();
         craftWindow.SetActive(false);
     }
 
     public void OnCloseButton()
     {
         Close();
+    }
+
+    bool CanCraft()
+    {
+        for (int i = 0; i < selectedItem.materials.Length; i++)
+        {
+            if (inventory.GetItemQuantity(selectedItem.materials[i].materialName) < selectedItem.materials[i].value)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    void ArchitectureCraft()
+    {
+        if (!CanCraft()) return;
+
+        // craft
+        ItemSlot slot = inventory.GetEmptyArchitectureSlot();
+
+        if(slot == null) return;
+
+        for (int i = 0; i < selectedItem.materials.Length; i++)
+        {
+            inventory.SubItemQuantity(selectedItem.materials[i].materialName, selectedItem.materials[i].value);
+        }
+
+        slot.item = selectedItem;
+        slot.item.icon = selectedItem.icon;
+
+        inventory.UpdateUI();
+        
+        ClearSelectedItemWindow();
+    }
+
+    public void OnCraftButton()
+    {
+        ArchitectureCraft();
     }
 }

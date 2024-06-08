@@ -16,6 +16,7 @@ public class ItemSlot : MonoBehaviour
     public UIInventory inventory;
     public UICraft craftInventory;
     public bool isCraftInventory = false;
+    public bool isArchitectureInventory = false;
 
     public int index;
     public bool equipped;
@@ -55,6 +56,10 @@ public class ItemSlot : MonoBehaviour
         if (isCraftInventory)
         {
             craftInventory.SelectItem(index);
+        }
+        else if(isArchitectureInventory)
+        {
+            inventory.SelectArchitecture(index);
         }
         else
         {

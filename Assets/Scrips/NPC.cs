@@ -47,7 +47,7 @@ public class NPC : MonoBehaviour, IDamagable
     private Animator animator;
     private SkinnedMeshRenderer[] meshRenderers;
 
-
+    public EnemyData enemyData;
 
     private void Awake()
     {
@@ -63,7 +63,7 @@ public class NPC : MonoBehaviour, IDamagable
         SetState(AIState.Wandering);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         playerDistance = Vector3.Distance(transform.position, CharacterManager.Instance.Player.transform.position);
 
@@ -235,7 +235,9 @@ public class NPC : MonoBehaviour, IDamagable
             Instantiate(dropOnDeath[i].dropPrefab, transform.position + Vector3.up * 2, Quaternion.identity);
         }
 
-        SpawnEnemy._instance.OnSpawn = Die;
+        SpawnEnemy spawnEnemy = FindObjectOfType<SpawnEnemy>();
+
+        spawnEnemy.SpawningPool(enemyData);
 
         Destroy(gameObject);
     }

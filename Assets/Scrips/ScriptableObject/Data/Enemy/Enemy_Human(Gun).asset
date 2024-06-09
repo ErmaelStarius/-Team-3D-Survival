@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32a6602427f4c346b7d131f61d17d29, type: 3}
+  m_Name: Enemy_Human(Gun)
+  m_EditorClassIdentifier: 
+  displayName: "\uCD1D \uB4E0 \uC0AC\uB78C"
+  description: "\uCD1D\uC744 \uB4E6"
+  type: 1
+  spawnPrefab: {fileID: 4957605393579145644, guid: 5ced7291082945042aed85e014d15b8b, type: 3}

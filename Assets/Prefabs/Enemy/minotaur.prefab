@@ -2432,8 +2432,8 @@ GameObject:
   - component: {fileID: 7708769529106328785}
   - component: {fileID: 2287178494461268628}
   - component: {fileID: 3920124276168440891}
-  - component: {fileID: 2174659684949906005}
-  - component: {fileID: 6240115240031222987}
+  - component: {fileID: 541732777063216301}
+  - component: {fileID: 8556989825916885253}
   m_Layer: 0
   m_Name: minotaur
   m_TagString: Untagged
@@ -2490,7 +2490,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -2523,32 +2523,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.98, z: 1}
   m_Center: {x: 0, y: 1.04, z: 0}
---- !u!114 &2174659684949906005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5307879097927677049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca99132a85029864496ea16156e2b6dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 5
-  walkSpeed: 1
-  runSpeed: 2
-  dropOnDeath: []
-  detectDistance: 3
-  minWanderDistance: 1
-  maxWanderDistance: 5
-  minWanderWaitTime: 2
-  maxWanderWaitTime: 5
-  damage: 5
-  attackRate: 2.5
-  attackDistance: 1
-  fieldOfView: 120
---- !u!137 &6240115240031222987
+--- !u!137 &541732777063216301
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2568,7 +2543,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10756, guid: 0000000000000000e000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2601,6 +2576,32 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_DirtyAABB: 0
+--- !u!114 &8556989825916885253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307879097927677049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca99132a85029864496ea16156e2b6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 30
+  walkSpeed: 1
+  runSpeed: 4
+  dropOnDeath: []
+  detectDistance: 3
+  minWanderDistance: 2
+  maxWanderDistance: 4
+  minWanderWaitTime: 2
+  maxWanderWaitTime: 4
+  damage: 5
+  attackRate: 1
+  attackDistance: 2
+  fieldOfView: 120
+  enemyData: {fileID: 11400000, guid: 2317a784dde8cad44bfe3121e6570e36, type: 2}
 --- !u!1 &5314116092087659643
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,7 +33,7 @@ public class SpawnEnemy : MonoBehaviour, ISpawn
     }
     public void spawn(EnemyData enemyData)
     {
-        Instantiate(enemyData.spawnPrefab, this.transform);
+        Instantiate(enemyData.spawnPrefab, _transform.transform);
 
     }
 

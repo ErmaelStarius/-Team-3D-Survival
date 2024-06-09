@@ -7610,6 +7610,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8386063240887613377, guid: ace2f584deceb0b4d93d1742037d3ba4, type: 3}
   m_PrefabInstance: {fileID: 562087564}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &574721855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7671,6 +7672,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 502afa9635d3b8047afbd84727dc475f, type: 3}
+=======
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
 --- !u!1 &575620958
 GameObject:
   m_ObjectHideFlags: 0
@@ -22100,11 +22103,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8428704791267190017, guid: 0a79a24f655407a45aff75cae7549199, type: 3}
   m_PrefabInstance: {fileID: 1829288183}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!4 &1833209500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6932920951635630689, guid: 502afa9635d3b8047afbd84727dc475f, type: 3}
   m_PrefabInstance: {fileID: 574721855}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
 --- !u!1001 &1836683263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24434,6 +24440,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3577518859123135851, guid: 02084f0f713eea74295858c46a13e18d, type: 3}
+<<<<<<< HEAD
 --- !u!1 &2042626806
 GameObject:
   m_ObjectHideFlags: 0
@@ -24466,6 +24473,8 @@ Transform:
   - {fileID: 1833209500}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
 --- !u!1 &2051051261
 GameObject:
   m_ObjectHideFlags: 0
@@ -25749,6 +25758,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+<<<<<<< HEAD
+=======
+--- !u!114 &1947333795479341790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7203748121049339335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b542f7a156b6e45b94d601eec12a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 2317a784dde8cad44bfe3121e6570e36, type: 2}
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
 --- !u!65 &2220725579344074265
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26027,6 +26052,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: d10f624748f816848ada0e7f7fe8264e, type: 2}
+<<<<<<< HEAD
+=======
+--- !u!4 &6932920952143172958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7203748121049339335}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 49.36, y: 0, z: -41}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
 --- !u!1 &6985512500919776144
 GameObject:
   m_ObjectHideFlags: 0
@@ -26045,6 +26088,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
   m_IsActive: 1
+<<<<<<< HEAD
+=======
+--- !u!1 &7203748121049339335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6932920952143172958}
+  - component: {fileID: 1947333795479341790}
+  m_Layer: 0
+  m_Name: EnemySpawnArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
 --- !u!114 &8232286064399473771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26146,4 +26209,8 @@ SceneRoots:
   - {fileID: 476814866416697014}
   - {fileID: 9157758011743502224}
   - {fileID: 4370637909997639909}
+<<<<<<< HEAD
   - {fileID: 2042626807}
+=======
+  - {fileID: 6932920952143172958}
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718

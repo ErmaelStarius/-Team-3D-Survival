@@ -2433,6 +2433,10 @@ GameObject:
   - component: {fileID: 2287178494461268628}
   - component: {fileID: 3920124276168440891}
   - component: {fileID: 2174659684949906005}
+<<<<<<< HEAD
+=======
+  - component: {fileID: 6240115240031222987}
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
   m_Layer: 0
   m_Name: minotaur
   m_TagString: Untagged
@@ -2468,7 +2472,11 @@ Animator:
   m_GameObject: {fileID: 5307879097927677049}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 63e974d9ec82619419e69ae2287be94e, type: 3}
+<<<<<<< HEAD
   m_Controller: {fileID: 9100000, guid: 9017e59db9eb7d2468f77df111a40c24, type: 2}
+=======
+  m_Controller: {fileID: 9100000, guid: a316d47cf502adc4e8a3110a41986431, type: 2}
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2547,8 +2555,64 @@ MonoBehaviour:
   attackRate: 2.5
   attackDistance: 1
   fieldOfView: 120
+<<<<<<< HEAD
   spawnArea: {fileID: 7203748120483142392, guid: 502afa9635d3b8047afbd84727dc475f, type: 3}
   enemyData: {fileID: 11400000, guid: 2317a784dde8cad44bfe3121e6570e36, type: 2}
+=======
+--- !u!137 &6240115240031222987
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307879097927677049}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 0}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_DirtyAABB: 0
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
 --- !u!1 &5314116092087659643
 GameObject:
   m_ObjectHideFlags: 0

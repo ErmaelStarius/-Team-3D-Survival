@@ -1,7 +1,10 @@
+
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+
 
 public enum AIState
 {
@@ -44,11 +47,14 @@ public class NPC : MonoBehaviour, IDamagable
     private Animator animator;
     private SkinnedMeshRenderer[] meshRenderers;
 
+<<<<<<< HEAD
     public GameObject spawnArea;
 
     public EnemyData enemyData;
 
 
+=======
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
 
 
     private void Awake()
@@ -61,6 +67,7 @@ public class NPC : MonoBehaviour, IDamagable
 
     private void Start()
     {
+
         SetState(AIState.Wandering);
     }
 
@@ -116,6 +123,7 @@ public class NPC : MonoBehaviour, IDamagable
 
     void PassiveUpdate()
     {
+
         if (aiState == AIState.Wandering && agent.remainingDistance < 0.1f)
         {
             SetState(AIState.Idle);
@@ -164,9 +172,9 @@ public class NPC : MonoBehaviour, IDamagable
             if (Time.time - lastAttackTime > attackRate)
             {
                 lastAttackTime = Time.time;
-                CharacterManager.Instance.Player.controller.GetComponent<IDamagable>().TakePhysicalDamage(damage);
                 animator.speed = 1;
                 animator.SetTrigger("Attack");
+                CharacterManager.Instance.Player.controller.GetComponent<IDamagable>().TakePhysicalDamage(damage);
             }
 
         }
@@ -210,12 +218,20 @@ public class NPC : MonoBehaviour, IDamagable
     public void TakePhysicalDamage(int damage)
     {
         health -= damage;
+<<<<<<< HEAD
         if (health <= 0)
+=======
+        if (health <= 0 && aiState != AIState.Death)
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
         {
 
 
             aiState = AIState.Death;
+<<<<<<< HEAD
 
+=======
+            agent.isStopped = true;
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
             animator.SetTrigger("Death");
 
             Invoke("Die", 2f);
@@ -235,9 +251,13 @@ public class NPC : MonoBehaviour, IDamagable
             Instantiate(dropOnDeath[i].dropPrefab, transform.position + Vector3.up * 2, Quaternion.identity);
         }
 
+<<<<<<< HEAD
         Instantiate(enemyData.spawnPrefab);
         // Not yet
 
+=======
+        SpawnEnemy._instance.OnSpawn = Die;
+>>>>>>> f003fd33a7d748866f19299cdb7264f6040f7718
 
         Destroy(gameObject);
     }

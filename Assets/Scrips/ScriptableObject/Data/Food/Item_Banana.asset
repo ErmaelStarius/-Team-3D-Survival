@@ -12,16 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccb8d9d5fac60b4da99d52b4e2c9acb, type: 3}
   m_Name: Item_Banana
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   displayName: "\uBC14\uB098\uB098"
   description: "\uCCB4\uB825\uACFC \uBC30\uACE0\uD514\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
   type: 2
   icon: {fileID: 21300000, guid: b53822ec75d701e49b9947d1d09fd81e, type: 3}
+=======
+  rcode: 
+  displayName: "\uBC14\uB098\uB098"
+  description: "\uCCB4\uB825\uACFC \uBC30\uACE0\uD514\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+  type: 2
+  icon: {fileID: 21300000, guid: 941ce54d8c29b8f4791e19736b0e6fc9, type: 3}
+>>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
   dropPrefab: {fileID: 3361016454311526174, guid: 7e5acaba670734a4891bfe96a9bbd13c, type: 3}
   canStack: 1
   maxStackAmount: 12
   consumables:
   - type: 1
+<<<<<<< HEAD
     value: 10
   - type: 0
     value: 20
+=======
+    value: 15
+  - type: 0
+    value: 25
+  isCraftItem: 0
+  materials: []
+>>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
   equipPrefab: {fileID: 0}

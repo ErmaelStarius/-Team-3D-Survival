@@ -21,6 +21,15 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     public float noHungerHealthDecay;
     public event Action onTakeDamage;
 
+    public Sprite temperatureNormal;
+    public Sprite temperatureCold;
+    public Sprite temperatureHot;
+
+    private void Start()
+    {
+        // temperatureIcon = GetComponent<Image>(); �̹��� ���� �۾� ��
+    }
+
     private void Update()
     {
         stamina.Add(stamina.regenRate * Time.deltaTime);
@@ -37,6 +46,20 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         if (thirst.curValue == 0.0f)
         {
             health.Subtract(noHungerHealthDecay * Time.deltaTime);
+        }
+
+        //temperature�� 20 �̸��̰ų� 80 �ʰ��� health�� ������ ����
+        if (temperature.curValue < 20)
+        {
+            health.Subtract(noHungerHealthDecay * 5 * Time.deltaTime);
+        }
+        else if (temperature.curValue > 80)
+        {
+            health.Subtract(noHungerHealthDecay * 5 * Time.deltaTime);
+        }
+        else
+        {
+            // temperature.icon = �̹��� ���� �۾� ��
         }
 
         //health�� 0���� �۾����� ����
@@ -85,5 +108,83 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         }
         stamina.Subtract(amount);
         return true;
+    }
+
+    private IEnumerator OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("Cold"))
+        {
+            for (int i = 0; i < 40; i++)
+            {
+                temperature.curValue -= 1;
+                yield return new WaitForSeconds(.1f);
+            }
+        }
+
+        if (collision.CompareTag("Hot"))
+        {
+            for (int i = 0; i < 40; i++)
+            {
+                temperature.curValue += 1;
+                yield return new WaitForSeconds(.1f);
+            }
+        }
+
+        if (collision.CompareTag("Cool"))
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                temperature.curValue -= 1;
+                yield return new WaitForSeconds(.1f);
+            }
+        }
+
+        if (collision.CompareTag("Warm"))
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                temperature.curValue += 1;
+                yield return new WaitForSeconds(.1f);
+            }
+        }
+    }
+
+    private IEnumerator OnTriggerExit(Collider collision)
+    {
+        if (collision.CompareTag("Cold"))
+        {
+            for (int i = 0; i < 40; i++)
+            {
+                temperature.curValue += 1;
+                yield return new WaitForSeconds(.1f);
+            }
+        }
+
+        if (collision.CompareTag("Hot"))
+        {
+            for (int i = 0; i < 40; i++)
+            {
+                temperature.curValue -= 1;
+                yield return new WaitForSeconds(.1f);
+            }
+        }
+
+        if (collision.CompareTag("Cool"))
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                temperature.curValue += 1;
+                yield return new WaitForSeconds(.1f);
+            }
+        }
+
+        if (collision.CompareTag("Warm"))
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                temperature.curValue -= 1;
+                yield return new WaitForSeconds(.1f);
+            }
+        }
     }
 }

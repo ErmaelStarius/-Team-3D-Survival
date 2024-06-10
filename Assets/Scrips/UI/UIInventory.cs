@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using System;
+using System.Reflection;
 
 
 
@@ -12,12 +13,15 @@ public class UIInventory : MonoBehaviour
 {
     public ItemSlot[] slots;
     public ItemSlot[] craftSlots;
+    public ItemSlot[] architectureSlots;
 
     public GameObject inventoryWindow;
     public Transform slotPanel;
+    public Transform ArchitectureSlotPanel;
     public Transform dropPosition;
     public GameObject craftWindow;
     public Transform craftSlotPanel;
+    public UICraft craft;
 
     [Header("Selected Item")]
 
@@ -29,6 +33,7 @@ public class UIInventory : MonoBehaviour
     public GameObject equipButton;
     public GameObject unEquipButton;
     public GameObject dropButton;
+    public GameObject buildButton;
 
     private int curEquipIndex;
 
@@ -47,7 +52,9 @@ public class UIInventory : MonoBehaviour
         controller.inventory += Toggle;
         CharacterManager.Instance.Player.addItem += AddItem;
 
-        inventoryWindow.SetActive(false);              
+        craft = craftWindow.GetComponent<UICraft>();
+
+        inventoryWindow.SetActive(false);
         slots = new ItemSlot[slotPanel.childCount];
 
         for (int i = 0; i < slots.Length; i++)
@@ -67,6 +74,16 @@ public class UIInventory : MonoBehaviour
             craftSlots[i].inventory = this;
         }
 
+        architectureSlots = new ItemSlot[ArchitectureSlotPanel.childCount];
+
+        for (int i = 0; i < architectureSlots.Length; i++)
+        {
+            architectureSlots[i] = ArchitectureSlotPanel.GetChild(i).GetComponent<ItemSlot>();
+            architectureSlots[i].index = i;
+            architectureSlots[i].inventory = this;
+            architectureSlots[i].isArchitectureInventory = true;
+        }
+
         ClearSelectedItemWindow();
         UpdateUI();
     }
@@ -84,23 +101,25 @@ public class UIInventory : MonoBehaviour
         equipButton.SetActive(false);
         unEquipButton.SetActive(false);
         dropButton.SetActive(false);
+        buildButton.SetActive(false);
     }
 
     public void Toggle()
     {
-        if(IsOpen())
+        if (IsOpen())
         {
             inventoryWindow.SetActive(false);
-            craftWindow.SetActive(false);
+            craft.Close();
         }
         else
         {
+            ClearSelectedItemWindow();
             inventoryWindow.SetActive(true);
         }
     }
 
 
-    
+
     public bool IsOpen()
     {
         return inventoryWindow.activeInHierarchy;
@@ -140,8 +159,8 @@ public class UIInventory : MonoBehaviour
 
 
 
-    
-    
+
+
     public void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++)
@@ -181,7 +200,7 @@ public class UIInventory : MonoBehaviour
         return null;
     }
 
-    ItemSlot GetEmptySlot()
+    public ItemSlot GetEmptySlot()
     {
         for (int i = 0; i < slots.Length; i++)
         {
@@ -193,14 +212,28 @@ public class UIInventory : MonoBehaviour
         return null;
     }
 
+    public ItemSlot GetEmptyArchitectureSlot()
+    {
+        for (int i = 0; i < architectureSlots.Length; i++)
+        {
+            if (architectureSlots[i].item == null)
+            {
+                return architectureSlots[i];
+            }
+        }
+        return null;
+    }
+
     //������ ������
     public void ThrowItem(ItemData data)
     {
         Instantiate(data.dropPrefab, dropPosition.position, Quaternion.Euler(Vector3.one * UnityEngine.Random.value * 360));
     }
-    
+
     public void SelectItem(int index)
     {
+        ClearSelectedItemWindow();
+
         if (slots[index].item == null) return;
 
 
@@ -226,6 +259,22 @@ public class UIInventory : MonoBehaviour
         dropButton.SetActive(true);
     }
 
+    public void SelectArchitecture(int index)
+    {
+        ClearSelectedItemWindow();
+
+        if (architectureSlots[index].item == null) return;
+
+
+        selectedItem = architectureSlots[index].item;
+        selectedItemIndex = index;
+
+
+        selectedItemName.text = selectedItem.displayName;
+        selectedItemDescription.text = selectedItem.description;
+
+        buildButton.SetActive(true);
+    }
 
     public void OnUseButton()
     {
@@ -236,10 +285,16 @@ public class UIInventory : MonoBehaviour
                 switch (selectedItem.consumables[i].type)
                 {
                     case ConsumableType.Health:
-                        condition.Heal(selectedItem.consumables[i].value); 
+                        condition.Heal(selectedItem.consumables[i].value);
                         break;
                     case ConsumableType.Hunger:
-                        condition.Eat(selectedItem.consumables[i].value); 
+                        condition.Eat(selectedItem.consumables[i].value);
+                        break;
+                    case ConsumableType.Thirst:
+                        condition.Drink(selectedItem.consumables[i].value);
+                        break;
+                    case ConsumableType.Samina:
+                        condition.Power(selectedItem.consumables[i].value);
                         break;
                 }
             }
@@ -249,18 +304,23 @@ public class UIInventory : MonoBehaviour
 
     public void OnDropButton()
     {
+        if (selectedItem.type == ItemType.Equipable && slots[selectedItemIndex].equipped)
+        {
+            UnEquip(selectedItemIndex);
+        }
+
         ThrowItem(selectedItem);
         RemoveSelctedItem();
     }
 
-    
+
     void RemoveSelctedItem()
     {
 
         slots[selectedItemIndex].quantity--;
 
 
-       if (slots[selectedItemIndex].quantity <= 0)
+        if (slots[selectedItemIndex].quantity <= 0)
         {
             selectedItem = null;
             slots[selectedItemIndex].item = null;
@@ -304,7 +364,7 @@ public class UIInventory : MonoBehaviour
     {
         UnEquip(selectedItemIndex);
     }
-    
+
     void CraftUI()
     {
         craftWindow.SetActive(true);
@@ -313,5 +373,63 @@ public class UIInventory : MonoBehaviour
     public void OnCraftButton()
     {
         CraftUI();
+    }
+
+    public int GetItemQuantity(string name)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item == null)
+            {
+                continue;
+            }
+            if (slots[i].item.rcode == name)
+            {
+                return slots[i].quantity;
+            }
+        }
+        return 0;
+    }
+
+    public void SubItemQuantity(string name, int subValue)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item == null)
+            {
+                continue;
+            }
+            if (slots[i].item.rcode == name)
+            {
+                slots[i].quantity -= subValue;
+
+                if (slots[i].quantity <= 0)
+                {
+                    slots[i].item = null;
+                }
+
+                return;
+            }
+        }
+
+        return;
+    }
+
+    public void OnBuildButton()
+    {
+        // TODO: 건물 건축하기
+
+        RemoveSelctedArchitecture();
+    }
+
+    void RemoveSelctedArchitecture()
+    {
+
+        selectedItem = null;
+        architectureSlots[selectedItemIndex].item = null;
+        selectedItemIndex = -1;
+        ClearSelectedItemWindow();
+
+        UpdateUI();
     }
 }

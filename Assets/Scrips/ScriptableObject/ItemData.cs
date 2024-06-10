@@ -1,19 +1,23 @@
 using UnityEngine;
 
-//¾ÆÀÌÅÛÀÇ ¿ëµµ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ëµµ
 public enum ItemType
 {
     Resource,
     Equipable,
-    Consumable
+    Consumable,
+    Architecture
 }
 
-//¼Òºñ¾ÆÀÌÅÛ Á¾·ù
+//ï¿½Òºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 public enum ConsumableType
 {
     Hunger,
     Health,
-    Thirst
+    Thirst,
+    Samina
+
+
 }
 
 [System.Serializable]
@@ -23,30 +27,39 @@ public class ItemDataConsumable
     public float value;
 }
 
-//ScriptableObject¸¦ ºü¸£°Ô ¸¸µé ¼ö ÀÖ°Ô ¸Þ´ºÃ¢¿¡ Ãß°¡.
+[System.Serializable]
+public class MaterialData
+{
+    public string materialName;
+    public int value;
+}
+
+//ScriptableObjectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½Þ´ï¿½Ã¢ï¿½ï¿½ ï¿½ß°ï¿½.
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
 public class ItemData : ScriptableObject
 {
-    //¾ÆÀÌÅÛÀÇ Á¤º¸
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [Header("Info")]
+    public string rcode;
     public string displayName;
     public string description;
     public ItemType type;
     public Sprite icon;
     public GameObject dropPrefab;
 
-    //¾ÆÀÌÅÛ º¸À¯Á¤µµ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     [Header("Stacking")]
     public bool canStack;
     public int maxStackAmount;
 
-    //¼Òºñ ¾ÆÀÌÅÛ
+    //ï¿½Òºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     [Header("Consumable")]
     public ItemDataConsumable[] consumables;
 
-    //°¡°ø(Å©·¡ÇÁÆ®) ¾ÆÀÌÅÛ
+    //ï¿½ï¿½ï¿½ï¿½(Å©ï¿½ï¿½ï¿½ï¿½Æ®) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     [Header("Craft")]
     public bool isCraftItem;
+    public MaterialData[] materials;
 
     [Header("Equip")]
     public GameObject equipPrefab;

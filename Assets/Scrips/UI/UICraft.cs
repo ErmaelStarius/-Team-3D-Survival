@@ -114,4 +114,14 @@ public class UICraft : MonoBehaviour
     {
         Close();
     }
+
+    void Craft()
+    {
+        craftWindow.SetActive(false);
+    }
+
+    public void OnCraftButton()
+    {
+        Craft();
+    }
 }

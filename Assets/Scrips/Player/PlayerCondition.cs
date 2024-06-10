@@ -27,7 +27,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        // temperatureIcon = GetComponent<Image>(); ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ ï¿½ï¿½
+        // temperatureIcon = GetComponent<Image>(); ÀÌ¹ÌÁö º¯°æ ÀÛ¾÷ Áß
     }
 
     private void Update()
@@ -36,19 +36,19 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         hunger.Subtract(hunger.decayRate * Time.deltaTime);
         thirst.Subtract(thirst.decayRate * Time.deltaTime);
 
-        //hungerï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½ï¿½ healthï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //hunger°¡ 0º¸´Ù ÀÛ¾ÆÁö¸é health¸¦ ±ðÀ½
         if (hunger.curValue == 0.0f)
         {
             health.Subtract(noHungerHealthDecay * Time.deltaTime);
         }
 
-        //thirstï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½ï¿½ healthï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //thirst°¡ 0º¸´Ù ÀÛ¾ÆÁö¸é health¸¦ ±ðÀ½
         if (thirst.curValue == 0.0f)
         {
             health.Subtract(noHungerHealthDecay * Time.deltaTime);
         }
 
-        //temperatureï¿½ï¿½ 20 ï¿½Ì¸ï¿½ï¿½Ì°Å³ï¿½ 80 ï¿½Ê°ï¿½ï¿½ï¿½ healthï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //temperature°¡ 20 ¹Ì¸¸ÀÌ°Å³ª 80 ÃÊ°ú¸é health¸¦ ºü¸£°Ô ±ðÀ½
         if (temperature.curValue < 20)
         {
             health.Subtract(noHungerHealthDecay * 5 * Time.deltaTime);
@@ -59,10 +59,10 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         }
         else
         {
-            // temperature.icon = ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ ï¿½ï¿½
+            // temperature.icon = ÀÌ¹ÌÁö º¯°æ ÀÛ¾÷ Áß
         }
 
-        //healthï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //health°¡ 0º¸´Ù ÀÛ¾ÆÁö¸é Á×À½
         if (health.curValue == 0.0f)
         {
             Die();
@@ -91,7 +91,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
 
     public void Die()
     {
-        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+        Debug.Log("À¯´ÙÈñ");
     }
 
     public void TakePhysicalDamage(int damageAmount)

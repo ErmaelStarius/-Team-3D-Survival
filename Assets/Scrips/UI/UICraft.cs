@@ -145,7 +145,7 @@ public class UICraft : MonoBehaviour
         // craft
         ItemSlot slot = inventory.GetEmptyArchitectureSlot();
 
-        if (slot == null) return;
+        if(slot == null) return;
 
         for (int i = 0; i < selectedItem.materials.Length; i++)
         {
@@ -156,7 +156,7 @@ public class UICraft : MonoBehaviour
         slot.item.icon = selectedItem.icon;
 
         inventory.UpdateUI();
-
+        
         ClearSelectedItemWindow();
     }
 

@@ -50,14 +50,14 @@ public class ItemSlot : MonoBehaviour
         icon.gameObject.SetActive(false);
         quatityText.text = string.Empty;
     }
-
+    
     public void OnClickButton()
     {
         if (isCraftInventory)
         {
             craftInventory.SelectItem(index);
         }
-        else if (isArchitectureInventory)
+        else if(isArchitectureInventory)
         {
             inventory.SelectArchitecture(index);
         }

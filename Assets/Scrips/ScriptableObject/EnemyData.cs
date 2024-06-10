@@ -18,6 +18,4 @@ public class EnemyData : ScriptableObject
     public string description;
     public EnemyType type;
     public GameObject spawnPrefab;
-
-    public Transform transform;
 }

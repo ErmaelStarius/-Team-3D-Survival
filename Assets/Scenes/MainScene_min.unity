@@ -837,8 +837,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4835789832631930, guid: bdf8e7438a7816543998181bd3067573, type: 3}
   m_PrefabInstance: {fileID: 42686851}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &48606388
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +971,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48606388}
   m_CullTransparentMesh: 1
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
 --- !u!1001 &57201114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3460,9 +3457,6 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 274817731}
   m_OnClick:
     m_PersistentCalls:
-<<<<<<< HEAD
-      m_Calls: []
-=======
       m_Calls:
       - m_Target: {fileID: 1580152250}
         m_TargetAssemblyTypeName: UICraft, Assembly-CSharp
@@ -3476,7 +3470,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
 --- !u!114 &274817731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5055,12 +5048,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCondition: {fileID: 1676882471}
   noHungerHealthDecay: 2
-<<<<<<< HEAD
-=======
   temperatureNormal: {fileID: 0}
   temperatureCold: {fileID: 0}
   temperatureHot: {fileID: 0}
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
 --- !u!114 &374061428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6291,13 +6281,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slots: []
   craftSlots: []
-<<<<<<< HEAD
-  inventoryWindow: {fileID: 469210318}
-  slotPanel: {fileID: 1706490198}
-  dropPosition: {fileID: 0}
-  craftWindow: {fileID: 1580152245}
-  craftSlotPanel: {fileID: 586068489}
-=======
   architectureSlots: []
   inventoryWindow: {fileID: 469210318}
   slotPanel: {fileID: 1706490198}
@@ -6306,7 +6289,6 @@ MonoBehaviour:
   craftWindow: {fileID: 1580152245}
   craftSlotPanel: {fileID: 586068489}
   craft: {fileID: 0}
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
   selectedItemName: {fileID: 467592583}
   selectedItemDescription: {fileID: 2078688534}
   selectedItemStatName: {fileID: 484036962}
@@ -6315,10 +6297,7 @@ MonoBehaviour:
   equipButton: {fileID: 133457616}
   unEquipButton: {fileID: 594176603}
   dropButton: {fileID: 1172890270}
-<<<<<<< HEAD
-=======
   buildButton: {fileID: 1882120026}
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
 --- !u!1 &473211229
 GameObject:
   m_ObjectHideFlags: 0
@@ -15673,10 +15652,7 @@ RectTransform:
   - {fileID: 133457617}
   - {fileID: 594176604}
   - {fileID: 1172890271}
-<<<<<<< HEAD
-=======
   - {fileID: 1882120030}
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
   m_Father: {fileID: 422615084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -17887,17 +17863,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ff3b86671d94145a4849954910659b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  slots: []
-  slotPanel: {fileID: 192634658}
-  craftWindow: {fileID: 1580152245}
-=======
   craftSlots: []
   craftSlotPanel: {fileID: 192634658}
   craftWindow: {fileID: 1580152245}
   inventoryWindow: {fileID: 469210318}
   inventory: {fileID: 0}
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
   selectedItemName: {fileID: 895446892}
   selectedItemDescription: {fileID: 2025235952}
   selectedItemStatName: {fileID: 795808317}
@@ -22232,8 +22202,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8515268588606497379, guid: e2a598321feae8849b15ea8f560c801b, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!1 &1882120026
 GameObject:
   m_ObjectHideFlags: 0
@@ -22367,7 +22335,6 @@ RectTransform:
   m_AnchoredPosition: {x: -36, y: -120}
   m_SizeDelta: {x: 180, y: 72}
   m_Pivot: {x: 1, y: 1}
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
 --- !u!1001 &1891364232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23203,13 +23170,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 192634658}
     m_Modifications:
-<<<<<<< HEAD
-=======
     - target: {fileID: 5031131407740330258, guid: 0a79a24f655407a45aff75cae7549199, type: 3}
       propertyPath: item
       value: 
       objectReference: {fileID: 11400000, guid: 9d0d67624fbb38244b8b7d994766d2e6, type: 2}
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
     - target: {fileID: 5034344205257255053, guid: 0a79a24f655407a45aff75cae7549199, type: 3}
       propertyPath: m_Name
       value: ItemSlot
@@ -25352,8 +25316,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 476814866416697014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!65 &3220104082253728593
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25401,7 +25363,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
 --- !u!54 &4522859045385620158
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25429,8 +25390,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
-<<<<<<< HEAD
-=======
 --- !u!23 &4544454809627376081
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25473,7 +25432,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
 --- !u!33 &4667116315305078694
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -25501,8 +25459,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
-=======
 --- !u!114 &4940943172712905654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25516,7 +25472,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 4bc20ae676d7478469e8f98b78997cf6, type: 2}
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
 --- !u!4 &5185736748510364145
 Transform:
   m_ObjectHideFlags: 0
@@ -25532,8 +25487,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9157758011743502224}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!4 &5252654648495481379
 Transform:
   m_ObjectHideFlags: 0
@@ -25550,7 +25503,6 @@ Transform:
   - {fileID: 8751206068634674150}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
 --- !u!1 &5445724407601575823
 GameObject:
   m_ObjectHideFlags: 0
@@ -25632,8 +25584,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
-<<<<<<< HEAD
-=======
 --- !u!54 &6092213191827637122
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25661,7 +25611,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
 --- !u!114 &6858544129713673940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25691,11 +25640,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-<<<<<<< HEAD
-  m_StaticEditorFlags: 126
-=======
   m_StaticEditorFlags: 0
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
   m_IsActive: 1
 --- !u!114 &8232286064399473771
 MonoBehaviour:
@@ -25710,8 +25655,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: d2d7fc8cd50d6564386d0ea85a9de490, type: 2}
-<<<<<<< HEAD
-=======
 --- !u!1 &8735056736214980398
 GameObject:
   m_ObjectHideFlags: 0
@@ -25746,7 +25689,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5252654648495481379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648
 --- !u!4 &9157758011743502224
 Transform:
   m_ObjectHideFlags: 0
@@ -25774,7 +25716,4 @@ SceneRoots:
   - {fileID: 974232274}
   - {fileID: 476814866416697014}
   - {fileID: 9157758011743502224}
-<<<<<<< HEAD
-=======
   - {fileID: 5252654648495481379}
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648

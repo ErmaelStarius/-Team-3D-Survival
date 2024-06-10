@@ -54,7 +54,7 @@ public class UIInventory : MonoBehaviour
 
         craft = craftWindow.GetComponent<UICraft>();
 
-        inventoryWindow.SetActive(false);
+        inventoryWindow.SetActive(false);              
         slots = new ItemSlot[slotPanel.childCount];
 
         for (int i = 0; i < slots.Length; i++)
@@ -106,7 +106,7 @@ public class UIInventory : MonoBehaviour
 
     public void Toggle()
     {
-        if (IsOpen())
+        if(IsOpen())
         {
             inventoryWindow.SetActive(false);
             craft.Close();
@@ -119,7 +119,7 @@ public class UIInventory : MonoBehaviour
     }
 
 
-
+    
     public bool IsOpen()
     {
         return inventoryWindow.activeInHierarchy;
@@ -159,8 +159,8 @@ public class UIInventory : MonoBehaviour
 
 
 
-
-
+    
+    
     public void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++)
@@ -229,7 +229,7 @@ public class UIInventory : MonoBehaviour
     {
         Instantiate(data.dropPrefab, dropPosition.position, Quaternion.Euler(Vector3.one * UnityEngine.Random.value * 360));
     }
-
+    
     public void SelectItem(int index)
     {
         ClearSelectedItemWindow();
@@ -285,10 +285,10 @@ public class UIInventory : MonoBehaviour
                 switch (selectedItem.consumables[i].type)
                 {
                     case ConsumableType.Health:
-                        condition.Heal(selectedItem.consumables[i].value);
+                        condition.Heal(selectedItem.consumables[i].value); 
                         break;
                     case ConsumableType.Hunger:
-                        condition.Eat(selectedItem.consumables[i].value);
+                        condition.Eat(selectedItem.consumables[i].value); 
                         break;
                     case ConsumableType.Thirst:
                         condition.Drink(selectedItem.consumables[i].value);
@@ -304,7 +304,7 @@ public class UIInventory : MonoBehaviour
 
     public void OnDropButton()
     {
-        if (selectedItem.type == ItemType.Equipable && slots[selectedItemIndex].equipped)
+        if(selectedItem.type == ItemType.Equipable && slots[selectedItemIndex].equipped)
         {
             UnEquip(selectedItemIndex);
         }
@@ -313,14 +313,14 @@ public class UIInventory : MonoBehaviour
         RemoveSelctedItem();
     }
 
-
+    
     void RemoveSelctedItem()
     {
 
         slots[selectedItemIndex].quantity--;
 
 
-        if (slots[selectedItemIndex].quantity <= 0)
+       if (slots[selectedItemIndex].quantity <= 0)
         {
             selectedItem = null;
             slots[selectedItemIndex].item = null;
@@ -364,7 +364,7 @@ public class UIInventory : MonoBehaviour
     {
         UnEquip(selectedItemIndex);
     }
-
+    
     void CraftUI()
     {
         craftWindow.SetActive(true);
@@ -403,7 +403,7 @@ public class UIInventory : MonoBehaviour
             {
                 slots[i].quantity -= subValue;
 
-                if (slots[i].quantity <= 0)
+                if(slots[i].quantity <= 0)
                 {
                     slots[i].item = null;
                 }
@@ -418,8 +418,6 @@ public class UIInventory : MonoBehaviour
     public void OnBuildButton()
     {
         // TODO: 건물 건축하기
-
-        Instantiate(architectureSlots[selectedItemIndex].item.dropPrefab, CharacterManager.Instance.Player.transform.position + Vector3.forward, Quaternion.identity);
 
         RemoveSelctedArchitecture();
     }

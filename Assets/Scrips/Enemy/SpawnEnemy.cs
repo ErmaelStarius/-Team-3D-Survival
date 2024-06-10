@@ -1,43 +1,43 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-
-
-public class SpawnEnemy : MonoBehaviour
+public interface ISpawn
 {
+    void Spawn(EnemyData enemyData);
+}
+public class SpawnEnemy : MonoBehaviour, ISpawn
+{
+
 
     public EnemyData enemyData;
 
-    // public Action OnSpawn;
-    // public static SpawnEnemy _instance;
+    public Action OnSpawn;
+    public static SpawnEnemy _instance;
     private void Awake()
     {
-        //_instance = this;
+        _instance = this;
     }
-
     private void Start()
     {
-        enemyData.transform = this.transform;
-
         for (int i = 0; i < 5; i++)
         {
-            StartCoroutine(Spawn(enemyData));
+            Spawn(enemyData);
         }
     }
 
-    public void SpawningPool(EnemyData enemyData)
+    private void Update()
     {
-        StartCoroutine(Spawn(enemyData));
+        if (OnSpawn != null)
+        {
+            Spawn(enemyData);
+            OnSpawn = null;
+        }
     }
-
-    IEnumerator Spawn(EnemyData enemyData)
+    public void Spawn(EnemyData enemyData)
     {
-        Instantiate(enemyData.spawnPrefab, enemyData.transform.position, Quaternion.identity, transform);
+        Instantiate(enemyData.spawnPrefab, this.transform);
 
-        yield return new WaitForSeconds(0.1f);
     }
-
 }

@@ -16,7 +16,3 @@ MonoBehaviour:
   description: "\uC5C4\uCCAD \uAC15\uD568"
   type: 0
   spawnPrefab: {fileID: 5307879097927677049, guid: 7427237dd667daa46b081dd3f5d06b75, type: 3}
-<<<<<<< HEAD
-  transform: {fileID: 0}
-=======
->>>>>>> ce0a2e0dc61959b89b40a086687f4e6a82792648

@@ -31,7 +31,7 @@ public class ItemDataConsumable
 public class MaterialData
 {
     public string materialName;
-    public float value;
+    public int value;
 }
 
 //ScriptableObject를 빠르게 만들 수 있게 메뉴창에 추가.

@@ -27,19 +27,19 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         hunger.Subtract(hunger.decayRate * Time.deltaTime);
         thirst.Subtract(thirst.decayRate * Time.deltaTime);
 
-        //hunger°¡ 0º¸´Ù ÀÛ¾ÆÁö¸é health¸¦ ±ðÀ½
+        //hungerï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½ï¿½ healthï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (hunger.curValue == 0.0f)
         {
             health.Subtract(noHungerHealthDecay * Time.deltaTime);
         }
 
-        //thirst°¡ 0º¸´Ù ÀÛ¾ÆÁö¸é health¸¦ ±ðÀ½
+        //thirstï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½ï¿½ healthï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (thirst.curValue == 0.0f)
         {
             health.Subtract(noHungerHealthDecay * Time.deltaTime);
         }
 
-        //health°¡ 0º¸´Ù ÀÛ¾ÆÁö¸é Á×À½
+        //healthï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (health.curValue == 0.0f)
         {
             Die();
@@ -68,7 +68,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
 
     public void Die()
     {
-        Debug.Log("À¯´ÙÈñ");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
     }
 
     public void TakePhysicalDamage(int damageAmount)

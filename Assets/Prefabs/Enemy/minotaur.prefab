@@ -2601,7 +2601,7 @@ MonoBehaviour:
   attackRate: 1
   attackDistance: 2
   fieldOfView: 120
-  enemyData: {fileID: 11400000, guid: 2317a784dde8cad44bfe3121e6570e36, type: 2}
+  enemyData: {fileID: 0}
 --- !u!1 &5314116092087659643
 GameObject:
   m_ObjectHideFlags: 0

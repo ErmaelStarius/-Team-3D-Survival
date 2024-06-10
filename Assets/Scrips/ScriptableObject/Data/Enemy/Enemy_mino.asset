@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d32a6602427f4c346b7d131f61d17d29, type: 3}
-  m_Name: Enemy_Mino
+  m_Name: Enemy_mino
   m_EditorClassIdentifier: 
   displayName: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4"
   description: "\uC5C4\uCCAD \uAC15\uD568"
   type: 0
   spawnPrefab: {fileID: 5307879097927677049, guid: 7427237dd667daa46b081dd3f5d06b75, type: 3}
+  transform: {fileID: 0}

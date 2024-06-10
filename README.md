@@ -53,17 +53,6 @@ Unity 3D기반으로 이루어진 생존형 게임
 
 ### 🤔 주요 기능 단편코드
 
-
-
-<details>
-　　<summary> .... </summary>
-<div markdown="1">       
-
-```csharp
-....
-</div>
-</details>
-
 <details>
 　　<summary> .... </summary>
 <div markdown="1">       
@@ -95,11 +84,60 @@ Unity 3D기반으로 이루어진 생존형 게임
 </details>
 
 <details>
-　　<summary> .... </summary>
+　　<summary> 건물 크래프팅 </summary>
 <div markdown="1">       
 
 ```csharp
-....
+bool CanCraft()
+{
+    for (int i = 0; i < selectedItem.materials.Length; i++)
+    {
+        if (inventory.GetItemQuantity(selectedItem.materials[i].materialName) < selectedItem.materials[i].value)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+void ArchitectureCraft()
+{
+    if (!CanCraft()) return;
+
+    ItemSlot slot = inventory.GetEmptyArchitectureSlot();
+
+    if(slot == null) return;
+
+    for (int i = 0; i < selectedItem.materials.Length; i++)
+    {
+        inventory.SubItemQuantity(selectedItem.materials[i].materialName, selectedItem.materials[i].value);
+    }
+
+    slot.item = selectedItem;
+    slot.item.icon = selectedItem.icon;
+
+    inventory.UpdateUI();
+    
+    ClearSelectedItemWindow();
+}
+```
+</div>
+</details>
+
+<details>
+　　<summary> Prefab 로딩 </summary>
+<div markdown="1">       
+
+```csharp
+private void Start()
+{
+    resourceRock = Resources.Load<GameObject>("Resource_Rock");
+    resourceTree = Resources.Load<GameObject>("Resource_Tree");
+
+    Instantiate(resourceRock);
+    Instantiate(resourceTree);
+}
 ```
 </div>
 </details>

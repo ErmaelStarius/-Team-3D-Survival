@@ -21,6 +21,6 @@ public class Player : MonoBehaviour
         condition = GetComponent<PlayerCondition>();
         equip = GetComponent<Equipment>();
 
-        if (ResourceManager.Instance == null) Debug.Log("ResourceManager error");
+        ResourceManager.Instance.StartRespawn();
     }
 }

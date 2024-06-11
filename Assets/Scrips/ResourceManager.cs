@@ -37,6 +37,11 @@ public class ResourceManager : MonoBehaviour
 
     private void Start()
     {
+
+    }
+
+    public void StartRespawn()
+    {
         resourceRock = Resources.Load<GameObject>("Resource_Rock");
         resourceTree = Resources.Load<GameObject>("Resource_Tree");
 

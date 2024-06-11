@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ccb8d9d5fac60b4da99d52b4e2c9acb, type: 3}
-  m_Name: Item_Table
+  m_Name: Item_House1
   m_EditorClassIdentifier: 
   rcode: 
-  displayName: "\uD0C1\uC790"
-  description: "\uAC00\uC7A5 \uAE30\uBCF8\uC801\uC778 \uB098\uBB34\uD0C1\uC790"
+  displayName: "\uC9D11"
+  description: "\uADF8\uB0E5 \uC9D11\uC785\uB2C8\uB2E4."
   type: 3
-  icon: {fileID: 21300000, guid: 9f44d73525b9f3947b75e8173dda22ba, type: 3}
-  dropPrefab: {fileID: 1315125114229348, guid: 4c1686a5131ac8b45bfe913f509289c0, type: 3}
+  icon: {fileID: 21300000, guid: 6054318fc678eef4e97655493b73c580, type: 3}
+  dropPrefab: {fileID: 6171393993172706325, guid: da7fb1d777ccdf744be1860763964403, type: 3}
   canStack: 0
   maxStackAmount: 0
   consumables: []

@@ -2519,6 +2519,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4419083434238170, guid: 71442e8cd72511e4fabb72f1a2cc82dd, type: 3}
   m_PrefabInstance: {fileID: 165212394}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &166150548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 166150550}
+  - component: {fileID: 166150549}
+  m_Layer: 0
+  m_Name: EnemySpawnArea (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &166150549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166150548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b542f7a156b6e45b94d601eec12a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 65ef552836b1d0f4fa2beb88e31f7edf, type: 2}
+--- !u!4 &166150550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166150548}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 46.43, y: 0, z: -66.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &176638364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5034,6 +5079,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCondition: {fileID: 1676882471}
   noHungerHealthDecay: 2
+  temperatureNormal: {fileID: 0}
+  temperatureCold: {fileID: 0}
+  temperatureHot: {fileID: 0}
 --- !u!114 &374061428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6288,11 +6336,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slots: []
   craftSlots: []
+  architectureSlots: []
   inventoryWindow: {fileID: 469210318}
   slotPanel: {fileID: 1706490198}
+  ArchitectureSlotPanel: {fileID: 0}
   dropPosition: {fileID: 0}
   craftWindow: {fileID: 1580152245}
   craftSlotPanel: {fileID: 586068489}
+  craft: {fileID: 0}
   selectedItemName: {fileID: 467592583}
   selectedItemDescription: {fileID: 2078688534}
   selectedItemStatName: {fileID: 484036962}
@@ -6301,6 +6352,7 @@ MonoBehaviour:
   equipButton: {fileID: 133457616}
   unEquipButton: {fileID: 594176603}
   dropButton: {fileID: 1172890270}
+  buildButton: {fileID: 0}
 --- !u!1 &473211229
 GameObject:
   m_ObjectHideFlags: 0
@@ -18153,9 +18205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ff3b86671d94145a4849954910659b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots: []
-  slotPanel: {fileID: 192634658}
+  craftSlots: []
+  craftSlotPanel: {fileID: 0}
   craftWindow: {fileID: 1580152245}
+  inventoryWindow: {fileID: 0}
+  inventory: {fileID: 0}
   selectedItemName: {fileID: 895446892}
   selectedItemDescription: {fileID: 2025235952}
   selectedItemStatName: {fileID: 795808317}
@@ -26094,3 +26148,4 @@ SceneRoots:
   - {fileID: 9157758011743502224}
   - {fileID: 4370637909997639909}
   - {fileID: 6932920952143172958}
+  - {fileID: 166150550}

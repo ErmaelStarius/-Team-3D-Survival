@@ -37,7 +37,7 @@ Unity 3D기반으로 이루어진 생존형 게임
 
 |이름|구성|역할|
 |:------:|:------:|:------:|
-|최도규|팀 장| ㅁㅁㅁ |
+|최도규|팀 장| GIT 관리, 맵 관리, 건축 관리 |
 |안후정|팀 원| 식사와 수분 관리, 음악 |
 |강수지|팀 원| 온도 조절, 지역 환경 설정, 날씨 변경 |
 |최민석|팀 원|인벤토리, 자원 생성 및 가공|
@@ -51,26 +51,6 @@ Unity 3D기반으로 이루어진 생존형 게임
    </br>
 
 ### 🤔 주요 기능 단편코드
-
-<details>
-　　<summary> .... </summary>
-<div markdown="1">       
-
-```csharp
-....
-```
-</div>
-</details>
-
-<details>
-　　<summary> .... </summary>
-<div markdown="1">       
-
-```csharp
-....
-```
-</div>
-</details>
 
 <details>
 　　<summary> .... </summary>

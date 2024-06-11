@@ -20,5 +20,7 @@ public class Player : MonoBehaviour
         controller = GetComponent<PlayerController>();
         condition = GetComponent<PlayerCondition>();
         equip = GetComponent<Equipment>();
+
+        if (ResourceManager.Instance == null) Debug.Log("ResourceManager error");
     }
 }

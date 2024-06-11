@@ -25639,10 +25639,11 @@ MonoBehaviour:
   maxWanderDistance: 10
   minWanderWaitTime: 1
   maxWanderWaitTime: 5
-  damage: 0
-  attackRate: 0
-  attackDistance: 0
+  damage: 20
+  attackRate: 20
+  attackDistance: 20
   fieldOfView: 120
+  enemyData: {fileID: 11400000, guid: cc775edf4f672f644b4143b4a09e27dc, type: 2}
 --- !u!65 &4906384045808818053
 BoxCollider:
   m_ObjectHideFlags: 0

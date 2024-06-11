@@ -418,6 +418,7 @@ public class UIInventory : MonoBehaviour
     public void OnBuildButton()
     {
         // TODO: 건물 건축하기
+        Instantiate(architectureSlots[selectedItemIndex].item.dropPrefab, CharacterManager.Instance.Player.transform.position + Vector3.forward, Quaternion.identity);
 
         RemoveSelctedArchitecture();
     }

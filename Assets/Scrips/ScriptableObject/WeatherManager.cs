@@ -10,7 +10,7 @@ public class WeatherManager : MonoBehaviour
     public ParticleSystem rain;
     public GameObject snowCollider;
     public GameObject rainCollider;
-    public float weather_time = 60f; // ³¯¾¾ ¹Ù²î´Â °£°Ý
+    public float weather_time = 10f; // ³¯¾¾ ¹Ù²î´Â °£°Ý
     public int next_weather; // ·£´ýÇÏ°Ô ´ÙÀ½ ³¯¾¾ ÁöÁ¤
 
     void Start()
@@ -72,7 +72,7 @@ public class WeatherManager : MonoBehaviour
                 next_weather = Random.Range(0, 3);  // ´ÙÀ½ ³¯¾¾ °è»ê(0 - ¸¼À½, 1 - ´«, 2 - ºñ)
                 ChangeWeather(Weather.SUNNY);  // ¸¼À½À¸·Î ¹Ù²ãÁÜ
             }
-            weather_time = 60f;
+            weather_time = 30f;
         }
     }
 }

@@ -7,6 +7,8 @@ TagManager:
   - JumpButton
   - Cold
   - Cool
+  - Hot
+  - Warm
   layers:
   - Default
   - TransparentFX

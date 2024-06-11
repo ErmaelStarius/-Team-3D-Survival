@@ -52,15 +52,6 @@ Unity 3D기반으로 이루어진 생존형 게임
 
 ### 🤔 주요 기능 단편코드
 
-<details>
-　　<summary> .... </summary>
-<div markdown="1">       
-
-```csharp
-....
-```
-</div>
-</details>
 
 <details>
 　　<summary> 건물 크래프팅 </summary>
@@ -155,26 +146,33 @@ IEnumerator Spawn(EnemyData enemyData)
 
 <div align = 'center'>
 
+
 |타이틀 화면|
 |:------:|
-|![타이틀 화면]( ... )|
+|![title](https://github.com/ErmaelStarius/-Team-3D-Survival/assets/167054226/85a41842-6231-4c97-a56c-a4bf2286d6a3)|
 
 </br>
 
-|메인 화면| 
+|인벤토리 화면| 
 |:------:|
-![메인 화면]( ... )|
+!![inventory](https://github.com/ErmaelStarius/-Team-3D-Survival/assets/167054226/c4167a0d-5af3-4983-b35c-674e1206b887)|
 
 </br>
 
 |상호 작용|
 |:------:|
-|![게임 오버]( ... )|
+|![in01](https://github.com/ErmaelStarius/-Team-3D-Survival/assets/167054226/a705556f-4366-4872-83b0-2a0dc34cb129)|
 
 </br>
 
-|스테이지 클리어| 
+|배틀 화면| 
 |:------:|
-|![스테이지 클리어]( ... )|
+|![battle](https://github.com/ErmaelStarius/-Team-3D-Survival/assets/167054226/68d41560-22fc-433f-9d08-879c3b05d5fd)|
+
+</div>
+
+|날씨| 
+|:------:|
+|![snow](https://github.com/ErmaelStarius/-Team-3D-Survival/assets/167054226/c9dbe773-39a6-4bb7-ae5a-ab999844d46d)|
 
 </div>

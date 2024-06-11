@@ -1,12 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Resource : MonoBehaviour
 {
     public ItemData itemToGive;
     public int quantityPerHit = 1;
     public int capacity;
-    public string resourceName;
-    public float respawnDelayTime;
 
     public void Gather(Vector3 hitPoint, Vector3 hitNormal)
     {
@@ -21,7 +22,6 @@ public class Resource : MonoBehaviour
         if (capacity <= 0)
         {
             Destroy(gameObject);
-            ResourceManager.Instance.RespawnResource(resourceName, respawnDelayTime);
         }
     }
 }
